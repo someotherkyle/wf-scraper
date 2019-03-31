@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'scraper.rb'
 class CLI
 
@@ -31,12 +32,20 @@ class CLI
       puts "\n\n\tEnter an item number for more information or a few letters for a new search."
       input = gets.strip
 
-      if input.start_with?(/\d/)
+      # Allows a user to continue to select items from the list
+      while input.start_with?(/\d/)
+
+      # Ensures the chosen number is within the range of the display array
+        unless (1..display_array.length).to_a.include?(input.to_i)
+          puts "Please choose a number from the list."
+          input = gets.strip
+          next
+        end
+
+        puts "\n\t#{display_array[input.to_i - 1].name}"
         puts "\t#{Scraper.get_item_info(display_array[input.to_i - 1])}"
         puts "\tEnter your next search or 'exit'."
         input = gets.strip
-      else
-        next
       end
     end
   end
