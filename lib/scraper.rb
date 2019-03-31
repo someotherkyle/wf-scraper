@@ -1,6 +1,5 @@
-require 'open-uri'
 require 'nokogiri'
-require 'pry'
+require 'open-uri'
 require_relative 'item.rb'
 module Scraper
   BaseURL = 'https://warframe.fandom.com'
@@ -24,6 +23,12 @@ module Scraper
     end
     item_list
   end
+
+  def self.get_item_info(item)
+      doc = Nokogiri::HTML(open(BaseURL + item.href))
+      doc.css("#mw-content-text p").text
+  end
+
 end
 
 Scraper.compile_list

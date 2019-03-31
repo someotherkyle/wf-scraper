@@ -7,9 +7,5 @@ class Item
     @href = href
   end
 
-  def add_description(description)
-    @description = description
-  end
-
 end
 
