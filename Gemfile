@@ -1,6 +1,5 @@
-source "https://rubygems.org"
-
-gem 'pry'
-gem 'nokogiri'
-gem 'open-uri'
-gem 'colorize'
+source "https://rubygems.org" do
+  gem 'pry'
+  gem 'nokogiri'
+  gem 'colorize'
+end

@@ -1,5 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
 require_relative 'item.rb'
 module Scraper
   BaseURL = 'https://warframe.fandom.com'
